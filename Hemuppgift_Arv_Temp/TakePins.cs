@@ -58,7 +58,7 @@ namespace Hemuppgift_Arv_Temp
                 }
                 else if (!turn) // Datorns tur att välja
                 {
-                    easy();
+                    hard();
                 }
             }
 
@@ -79,7 +79,26 @@ namespace Hemuppgift_Arv_Temp
                 Console.WriteLine($"Your Opponent took 1, {board.GetNoPins()} Left.");
                 turn = true;
             }
-            
+            void hard()
+            {
+                if (board.GetNoPins() <= 2)
+                {
+                    computer.TakePins(board, 2);
+                }
+                else if (board.GetNoPins() % 2 == 1)
+                {
+                    computer.TakePins(board, 2);
+                    Console.WriteLine($"Your Opponent took 2, {board.GetNoPins()} Left. {Pins % 2}");
+                }
+                else if (board.GetNoPins() % 2 == 0)
+                {
+                    computer.TakePins(board, 1);
+                    Console.WriteLine($"Your Opponent took 1, {board.GetNoPins()} Left.");
+
+                }
+                turn = true;
+            }
+
         }
 
         
